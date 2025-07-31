@@ -1,0 +1,52 @@
+# Wrangler configuration for V2Ray Config Tester
+
+name = "v2ray-config-tester"
+main = "worker.js"
+compatibility_date = "2024-01-15"
+compatibility_flags = ["nodejs_compat"]
+
+# KV Namespace for storing configs and results
+[[kv_namespaces]]
+binding = "V2RAY_KV"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-namespace-id"
+
+# Cron trigger for automatic testing every 6 hours
+[triggers]
+crons = ["0 */6 * * *"]
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+MAX_CONFIGS = "20"
+TEST_TIMEOUT = "10000"
+
+# Durable Objects (optional for advanced state management)
+# [[durable_objects.bindings]]
+# name = "V2RAY_TESTER"
+# class_name = "V2RayTester"
+
+# Routes (configure your custom domain)
+# routes = [
+#   { pattern = "v2ray-tester.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# Build configuration
+[build]
+command = ""
+cwd = ""
+watch_dir = ""
+
+# Development configuration
+[env.development]
+name = "v2ray-config-tester-dev"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+
+# Staging configuration
+[env.staging]
+name = "v2ray-config-tester-staging"
+
+[env.staging.vars]
+ENVIRONMENT = "staging"

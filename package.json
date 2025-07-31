@@ -1,0 +1,49 @@
+{
+    "name": "v2ray-config-tester",
+    "version": "1.0.0",
+    "description": "A Cloudflare Worker to test V2Ray configs for Iran connectivity and speed",
+    "main": "worker.js",
+    "scripts": {
+        "dev": "wrangler dev",
+        "deploy": "wrangler deploy",
+        "deploy:staging": "wrangler deploy --env staging",
+        "tail": "wrangler tail",
+        "kv:create": "wrangler kv:namespace create V2RAY_KV",
+        "kv:create:preview": "wrangler kv:namespace create V2RAY_KV --preview",
+        "kv:list": "wrangler kv:key list --binding V2RAY_KV",
+        "kv:get": "wrangler kv:key get --binding V2RAY_KV",
+        "kv:put": "wrangler kv:key put --binding V2RAY_KV",
+        "kv:delete": "wrangler kv:key delete --binding V2RAY_KV",
+        "test": "echo \"No tests specified\" && exit 0",
+        "lint": "eslint worker.js",
+        "format": "prettier --write *.js *.json *.md"
+    },
+    "keywords": [
+        "cloudflare",
+        "worker",
+        "v2ray",
+        "proxy",
+        "iran",
+        "connectivity",
+        "speed-test"
+    ],
+    "author": "V2Ray Config Tester",
+    "license": "MIT",
+    "devDependencies": {
+        "@cloudflare/workers-types": "^4.20231218.0",
+        "wrangler": "^3.22.1",
+        "eslint": "^8.56.0",
+        "prettier": "^3.1.1"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/your-username/v2ray-config-tester.git"
+    },
+    "bugs": {
+        "url": "https://github.com/your-username/v2ray-config-tester/issues"
+    },
+    "homepage": "https://github.com/your-username/v2ray-config-tester#readme"
+}

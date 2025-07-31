@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تستر کانفیگ V2Ray - ایران</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>تستر کانفیگ V2Ray</h1>
+                </div>
+                <div class="status-indicator">
+                    <span class="status-dot" id="statusDot"></span>
+                    <span id="statusText">آماده</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-link"></i>
+                        <h2>ورود ساب دامین V2Ray</h2>
+                    </div>
+                    <div class="card-body">
+                        <form id="configForm">
+                            <div class="input-group">
+                                <label for="subDomain">آدرس ساب دامین:</label>
+                                <input type="url" id="subDomain" placeholder="https://example.com/sub" required>
+                                <small>آدرس کامل ساب دامین V2Ray خود را وارد کنید</small>
+                            </div>
+                            <div class="button-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-play"></i>
+                                    شروع تست
+                                </button>
+                                <button type="button" id="stopBtn" class="btn btn-secondary" disabled>
+                                    <i class="fas fa-stop"></i>
+                                    توقف
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-chart-line"></i>
+                        <h2>پیشرفت تست</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="progress-info">
+                            <div class="progress-stats">
+                                <div class="stat">
+                                    <span class="stat-number" id="totalConfigs">0</span>
+                                    <span class="stat-label">کل کانفیگ‌ها</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" id="testedConfigs">0</span>
+                                    <span class="stat-label">تست شده</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number" id="workingConfigs">0</span>
+                                    <span class="stat-label">فعال</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">در حال آماده‌سازی...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-trophy"></i>
+                        <h2>بهترین کانفیگ‌ها</h2>
+                        <div class="card-actions">
+                            <button id="downloadBtn" class="btn btn-success">
+                                <i class="fas fa-download"></i>
+                                دانلود فایل
+                            </button>
+                            <button id="refreshBtn" class="btn btn-info">
+                                <i class="fas fa-refresh"></i>
+                                تست مجدد
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="results-grid" id="resultsGrid">
+                            <!-- Results will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Schedule Info -->
+            <section class="schedule-section">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-clock"></i>
+                        <h2>تست خودکار</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="schedule-info">
+                            <p>سیستم هر 6 ساعت یک بار به صورت خودکار کانفیگ‌ها را تست می‌کند</p>
+                            <div class="next-test">
+                                <span>تست بعدی:</span>
+                                <span id="nextTestTime">در حال محاسبه...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>ساخته شده با ❤️ برای کاربران ایرانی</p>
+            <p>آخرین بروزرسانی: <span id="lastUpdate">-</span></p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <i class="fas fa-spinner fa-spin"></i>
+            <p>در حال پردازش...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
